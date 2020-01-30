@@ -1,0 +1,126 @@
+
+@media(max-width: 1199px){
+	.resume_boxs {
+	  padding: 15px;
+	}
+	.r_content .view_span, .r_content .view_link{
+		padding: 0 7px;
+	}
+}
+@media(min-width: 992px){
+	.filter_d{
+		display: inline-block;
+	}
+	.filter_m{
+		display: none;
+	}
+}
+@media(max-width: 991px){
+	.left_login {
+	    width: 100%;
+	    display: inline-block;
+	}
+	.login_img_part {
+	    text-align: center;
+	}
+	.right_login{
+		width: 100%;
+	    display: inline-block;
+	}
+	/*== sidebar css ==*/
+	.filter_m{
+		display: inline-block;
+	}
+	.filter_d{
+		display: none;
+	}
+	.search_content_area{
+		padding-left: 0px; 
+	}
+	.search_sidebar {
+		display: inline-block;
+		width: 100%;
+		background: transparent;
+		padding: 0 10px;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		margin-top: 15px;
+	}
+	.sidebar_heading {
+	    margin-bottom: 0;
+	}
+	.filter_toggle {
+	    background: #6581e5;
+	    font-size: 15px;
+	    color: #fff;
+	    padding: 8px 12px;
+	    border-radius: 4px;
+	}
+	.filter_forms {
+	    float: left;
+	    width: 100%;
+	    background: #fff;
+	    padding: 20px 10px 0;
+	    box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+	    -webkit-box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+	    -moz-box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+	    display: none;
+	}
+	.filter_forms .filter_row {
+	    float: left;
+	    width: 50%;
+	    padding: 0 4px;
+	}
+	/*== sidebar css ==*/
+}
+@media(max-width: 767px){
+	.form_inline .form_group .input_lable {
+	    width: 100%;
+	    display: inline-block;
+	    float: none;
+	}
+	.form_inline .form_group .input_group {
+	    padding-left: 0;
+	}
+	.candidate_details_box .r_thumb_wrap {
+	    width: 100%;
+	}
+	.candidate_table_content {
+	    padding-left: 0;
+	    float: left;
+	    width: 100%;
+	    padding-top: 25px;
+	}
+	.form_center {
+	    padding: 0 10px;
+	}
+	.page_banner_text{
+		text-align: center;
+	}
+	.page_banner_text .banner_heading {
+	    display: inline-block;
+	    width: 100%;
+	}
+	.page_banner_text .breadcrumbs {
+	    float: left;
+	    margin-top: 9px;
+	    width: 100%;
+	}
+}
+@media(max-width: 540px){
+	.filter_forms .filter_row {
+	    width: 100%;
+	}
+}
+@media(max-width: 480px){
+	.header_right .user_img {
+	    width: 40px;
+	    height: 40px;
+	    margin-right: 5px;
+	}
+	.dropdown_navs{
+		right: 0;
+		left: auto;
+	}
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Registration form</title>
+	<script type="text/javascript">
+		function valid()
+		{
+			var name=document.getElementById('name').value;
+
+			var eamil=document.getElementById('email').value;
+			var p=document.getElementById('p').value;
+			var cp=document.getElementById('cp').value;
+            var c=document.getElementById('c');
+            var php=document.getElementById('php');
+            var java=document.getElementById('java');
+             var ccc=document.getElementById('ccc');
+             alert(hru);
+             if(name.length=='')
+             {
+              document.getElementById('n1').innertml="enter name";
+              return false;
+             }
+             return true;
+
+
+		}
+
+	</script>
+
+</head>
+<body>
+	<form method="post">
+		<table border="2" align="center" >
+			<th colspan="2" align="center"><h2>Registration Form</h2></th>
+			<tr>
+				<td>Name</td>
+					<td><input type="text" name="name" id="name">
+                        <span id="n1"></span>
+					</td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input type="email" name="email" id="email">
+                    <span id="e1"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type="Password" name="p" id="p">
+                   <span id="p1"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>Confirm Password</td>
+				<td><input type="Password" name="cp" id="cp">
+                    <span id="cp1"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>country</td>
+				<td><select>
+					<option value="india">India</option>
+					<option value="uk">uk</option>
+					<option value="us">us</option>
+					<option value="nepal"> nepal</option>
+				</select>
+				</td>
+			</tr>
+			<tr><td>state</td>
+				<td><select>
+				    <option>state</option>
+			       </select></td>
+			</tr>
+			<tr>
+				<td>skill</td>
+                  <td><input type="checkbox" name="hobby[]" id="c">C
+                  <input type="checkbox" name="hobby[]" id="php">PHP
+                  <input type="checkbox" name="hobby[]" id="java">JAVA
+                  <input type="checkbox" name="hobby[]" id="ccc">C++
+				   <span id="h1"></span>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="submit" name="save" value="Registar" onclick="valid()"></td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>
+
+
