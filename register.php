@@ -1,3 +1,5 @@
+<?php include 'connection.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,7 +35,7 @@
 						}
 					?>
 					<?php 
-						include 'connection.php';
+						
 						
 						if ($_POST) {
 
@@ -41,14 +43,15 @@
 							$lastname=$_POST['lastname'];
 							$email=$_POST['email'];
 							$password=$_POST['password'];
+							$filename='';
 
-							$query="SELECT * FROM 	users WHERE email='$email'";
+						$query="SELECT * FROM 	users WHERE email='$email'";
 							$res=mysqli_query($conn,$query);
 							$num=mysqli_affected_rows($conn);
 
 							if ($num == 0) 
 							{
-								$sql="INSERT INTO users (firstname, lastname, email, password,status) VALUES ('$firstname', '$lastname', '$email', '".md5($password)."','1')"; 
+						 	$sql="INSERT INTO users (firstname, lastname, email, password,filename,status) VALUES ('$firstname', '$lastname', '$email', '".md5($password)."','','1')";
 								$result=mysqli_query($conn,$sql);
 								$numq=mysqli_affected_rows($conn);
 

@@ -1,14 +1,8 @@
-<?php
+<?php include 'check.php'; ?>
+<?php include 'connection.php'; ?>
+<?php include 'header.php'; ?>
+
 	
-	include 'check.php';
-
-	include 'connection.php';
-
-	include 'header.php';
-
-	//insert into view table , user_id, resume_id
-
-?>
 <?php
 	
 	if($_GET){
@@ -136,9 +130,6 @@
 	<!-- middle area -->
 	<!-- Footer start -->
 
-<?php
-	
-	include 'footer.php';
-?>
+<?php include 'footer.php'; ?>
 
 

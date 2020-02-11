@@ -1,13 +1,6 @@
-<?php
-	
-	include 'check.php';
-	
-	include 'connection.php'; 
-
-	include 'header.php';
-
-	?>
-
+<?php include 'check.php'; ?>
+<?php include 'connection.php'; ?> 
+<?php include 'header.php'; ?>
 	<!-- header End -->
 	<!-- page banner section start -->
 	<div class="section page_banner_section">
@@ -58,7 +51,7 @@
 			$uploadOk = 1;
 			$imageFileType = pathinfo($filename)['extension'];
 
-			$allowed_type = ['html','xls'];
+			$allowed_type = ['docs','doc','pdf'];
 
 
 
@@ -193,7 +186,17 @@
 								<div class="form_group">
 									<label class="input_lable">Location</label>
 									<div class="input_group">
-										<input type="text" name="location" placeholder="Enter Your Location" required="">
+										<select name="location">
+											<option value="">Your Location</option>
+											<option value="Indore">Indore</option>
+											<option value="Bhopal">Bhopal</option>
+											<option value="Ujjain">Ujjain</option>
+											<option value="Betul">Betul</option>
+											<option value="Dewas">Dewas</option>
+											<option value="Gwalior">Gwalior</option>
+											<option value="Jablpur">Jablpur</option>
+											<option value="Sagar">Sagar</option>
+										</select>
 									</div>
 								</div>
 								<div class="form_group">
@@ -221,7 +224,7 @@
 	</div>
 	<!-- middle area -->
 	<!-- Footer start -->
-		<?php include 'footer.php'; ?>
+<?php include 'footer.php'; ?>
 			
 			<?php
 
@@ -231,4 +234,3 @@
 				}
 			?>
 
-			

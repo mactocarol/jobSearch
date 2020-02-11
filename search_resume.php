@@ -1,14 +1,7 @@
-<?php
-
- include 'check.php';
-
- include 'connection.php';
-
- include 'header.php';
-
-?>
-
-	<!-- header End -->
+<?php include 'check.php'; ?>
+<?php include 'connection.php'; ?>
+<?php include 'header.php'; ?>
+<!-- header End -->
 	<!-- page banner section start -->
 	<div class="section page_banner_section">
 		<div class="container">
@@ -45,10 +38,19 @@
 							</div>
 							<form action="search_resume.php" method="get">
 							<div class="filter_forms">
-								<div class="filter_row">
+								<div class="filter_row select_box">
 									<div class="f_heading">Location</div>
 									<div class="f_content">
-									  <input type="text" name="location" placeholder="Location" value="<?php if(isset($_GET['location'])) { echo $_GET['location']; } ?>">
+										<select class="selectpicker" name="location[]" multiple="">
+											<option value="Indore" <?php if(isset($_GET['location']) && in_array('Indore',$_GET['location']) ) echo "selected";  ?> >Indore</option>
+											<option value="Bhopal" <?php if(isset($_GET['location']) && in_array('Bhopal',$_GET['location']) ) echo "selected"; ?> >Bhopal</option>
+											<option value="Ujjain" <?php if(isset($_GET['location']) && in_array('Ujjain',$_GET['location']) ) echo "selected"; ?> > Ujjain</option>
+											<option value="Betul" <?php if(isset($_GET['location']) && in_array('Betul',$_GET['location']) ) echo "selected"; ?> > Betul</option>
+											<option value="Dewas" <?php if(isset($_GET['location']) && in_array('Dewas',$_GET['location']) ) echo "selected"; ?> >Dewas</option>
+											<option value="Gwalior" <?php if(isset($_GET['location']) && in_array('Gwalior',$_GET['location']) ) echo "selected"; ?> >Gwalior</option>
+											<option value="Jablpur" <?php if(isset($_GET['location']) && in_array('Jablpur',$_GET['location']) ) echo "selected"; ?> >Jablpur</option>
+											<option value="Sagar" <?php if(isset($_GET['location']) && in_array('Sagar',$_GET['location']) ) echo "selected"; ?> >Sagar</option>
+										</select>
 									</div>
 								</div>
 								<div class="filter_row select_box">
@@ -108,17 +110,52 @@
 								</div>
 								<div class="row">
 									
+								<?php
 
+								$rowperpage = 4;
+								$rowcount = 0 ;
+
+								if (isset($_POST['btn_prev'])) {
+									
+								 $rowcount = $_POST['rowcount'];
+									$rowcount -= $rowperpage ;
+
+										if ($rowcount < 0) {
+											
+										$rowcount = 0;
+										}
+									} 		
+								
+
+								if (isset($_POST['btn_next'])) {
+							
+									$rowcount = $_POST['rowcount'];
+									$allcount = $_POST['allcount'];	
+									
+								$val = $rowcount + $rowperpage ;
+									if ($val < $allcount) {
+										
+										$rowcount =$val;
+									}
+								}
+							
+							
+							?>
  
 
 							<?php 
 							if($_GET){
 
-									$query = "SELECT * FROM  resumes WHERE status = 1 ";
+								$sql = "SELECT COUNT(*) AS cntrows FROM resumes WHERE status = 1";
+								$result = mysqli_query($conn,$sql);
+								$res1 = mysqli_fetch_array($result);
+								$allcount = $res1['cntrows'];
 
-									if($_GET['location']){
-										$location = $_GET['location'];
-										$query .= "AND location LIKE '%$location%' ";	
+								$query = "SELECT * FROM  resumes WHERE status = 1 "; 
+									
+									if(isset($_GET['location'])){
+										$location = implode("','",$_GET['location']);
+										$query .= "AND location IN ('$location') ";	
 									}
 
 									if(isset($_GET['position'])){
@@ -135,13 +172,19 @@
 									  $ctc = ($_GET['amount']);
 									  $ctc=explode('-',$ctc);
 									  
-									  $query .="AND ctc > $ctc[0] and ctc < $ctc[1] ";
+									  $query .="AND ctc > $ctc[0] and ctc < $ctc[1]  ORDER BY ID ASC limit $rowcount,".$rowperpage;
 								}
 
 								//echo $query; die;
 							}else{
 								
-								$query="SELECT * FROM  resumes";
+								// count total no of row
+								$sql = "SELECT COUNT(*) AS cntrows FROM resumes"; 
+								$result = mysqli_query($conn,$sql);
+								$res1 = mysqli_fetch_array($result);
+								$allcount = $res1['cntrows'];
+
+								$query="SELECT * FROM  resumes ORDER BY ID ASC limit $rowcount,".$rowperpage; 
 
 							}
 								
@@ -165,7 +208,7 @@
 													<span class="location"><?php echo $row['location'] ;?></span>
 													<span class="ctc_r"><?php echo $row['ctc'] ;?></span>
 												</div>
-													<?PHP 
+													<?php 
 													
 													
 
@@ -219,10 +262,20 @@
 							?>
 									
 									<!--  -->
+								
+
 								</div>
 							</div>
 						</div>
 						<!-- content area End -->
+						<form action="#" method="post">
+									<div id="div_pagination"> 
+										<input type="hidden" name="rowcount" value="<?php echo $rowcount; ?>">
+										<input type="hidden" name="allcount" value="<?php echo $allcount; ?>">
+										<input type="submit" class="button" name="btn_prev" value="Previous">
+										<input type="submit" class="button" name="btn_next" value="Next">
+									</div>
+								</form>
 					</div>
 				</div>
 			</div>
@@ -258,3 +311,7 @@
 
 	
 
+		
+		
+	
+		

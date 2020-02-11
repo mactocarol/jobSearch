@@ -1,3 +1,4 @@
+<?php  include 'connection.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,8 +30,7 @@
 							</span>
 
 							<?php
-							include 'connection.php';
-
+							
 							if (($_POST))
 							{
 							$email=$_POST['email'];
@@ -77,6 +77,7 @@
 				        </div>
 				        <div class="form_group alerady_reg_text">
 			            <p>You Don't have account <a href="register.php">Register Now</a></p>
+			            <p>Forget password <a href="forget.php">Forget Password</a></p>
 				        </div>
 							</form>
 						</div>

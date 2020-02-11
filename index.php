@@ -1,3 +1,4 @@
+<?php include 'connection.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,8 +30,7 @@
 							</span>
 
 							<?php
-							include 'connection.php';
-
+							
 							if (($_POST))
 							{
 							$email=$_POST['email'];

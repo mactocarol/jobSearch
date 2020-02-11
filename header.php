@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,8 +47,9 @@
 							<div class="dropdown_navs">
 								<ul>
 									<li><a href="dashboard.php">Dashboard</a></li>
+									<li><a href="myresume.php">My Resume</a></li>
 									<li><a href="profile.php">profile</a></li>
-									<li><a href="#">setting</a></li>
+									<li><a href="setting.php">setting</a></li>
 									<li><a href="logout.php">Logout</a></li>
 								</ul>
 							</div>

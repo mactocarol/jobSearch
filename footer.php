@@ -1,6 +1,3 @@
-
-
-
 <div class="footer_section">
 		<div class="container">
 			<div class="row">

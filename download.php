@@ -1,9 +1,5 @@
-<?php
-	
-	include 'check.php';
-
-	include 'connection.php';
-?>
+<?php include 'check.php'; ?>
+<?php include 'connection.php'; ?>
 <?php
 	
 	// if (!empty($_GET['file'])) {
